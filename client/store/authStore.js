@@ -20,12 +20,22 @@ const useAuthStore = create((set) => ({
     loadUser: async () => {
         const token = localStorage.getItem('token');
         if (!token) return;
-        const data = await fetchCurrentUser(token);
-        set({ user: data.user, token });
-    },
+
+        try {
+            const data = await fetchCurrentUser(token);
+            set({ user: data.user, token });
+        } catch (error) {
+            console.error("User loading failed", error);
+            localStorage.removeItem('token'); // Optional
+            set({ user: null, token: null });
+            throw error;
+        }
+    }
+    ,
 
     logout: () => {
         logoutUser();
+        localStorage.removeItem('token');
         set({ user: null, token: null });
     },
 }));

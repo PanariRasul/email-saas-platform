@@ -95,12 +95,11 @@ const EmailMarketingCTA = () => {
                         <div
                             key={index}
                             className={`
-                text-center p-6 rounded-2xl transition-all duration-300 hover:scale-105
-                ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}
+                text-center p-6 rounded-2xl transition-all duration-300 hover:scale-105 dark:bg-[#221952] text-white bg-white text-gray-900
                 shadow-lg hover:shadow-xl bg-[#6528F7] `}
                         >
                             <div className="text-3xl font-bold text-[#00FF9C] mb-2">{stat.number}</div>
-                            <div className="text-white dark:text-gray-300">{stat.label}</div>
+                            <div className="text-black dark:text-gray-300">{stat.label}</div>
                         </div>
                     ))}
                 </div>
@@ -124,19 +123,19 @@ const EmailMarketingCTA = () => {
                             icon: "📊"
                         }
                     ].map((feature, index) => (
-                        <div 
-                            key = { index }
-                            className = {`p-8 rounded-2xl transition-all duration-300 hover:scale-105 border border-[#AD49E1] shadow-[0_0_5px_2px_#4300FF]
+                        <div
+                            key={index}
+                            className={`p-8 rounded-2xl transition-all duration-300 hover:scale-105 border border-[#AD49E1] shadow-[0_0_5px_2px_#4300FF]
                                 dark:bg-[#221952]
                                 shadow-lg hover:shadow-xl`}>
 
-                    <div className="text-4xl mb-4">{feature.icon}</div>
-                    <h3 className="text-xl font-semibold mb-3 text-black dark:text-white">{feature.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
-                </div>
+                            <div className="text-4xl mb-4">{feature.icon}</div>
+                            <h3 className="text-xl font-semibold mb-3 text-black dark:text-white">{feature.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                        </div>
                     ))}
+                </div>
             </div>
-        </div>
         </div >
     );
 };

@@ -165,10 +165,10 @@ const GrowthPerformanceChart = () => {
 
                     {/* Data Point Highlight */}
                     <div className="mt-8 p-6 bg-gradient-to-r from-purple-500/10 to-green-500/10 rounded-xl">
-                        <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+                        <div className="flex flex-col md:flex-row justify-around items-center">
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-purple-600">2020</div>
-                                <div className="text-sm text-gray-600 dark:text-gray-300">Featured Year</div>
+                                <div className="text-2xl font-bold text-green-600">2020</div>
+                                <div className="text-sm text-green-600 dark:text-green-600">Featured Year</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-purple-600">54,000</div>

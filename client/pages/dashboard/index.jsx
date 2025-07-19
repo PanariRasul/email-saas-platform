@@ -4,8 +4,9 @@ import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 import DashboardLayout from '../../components/DashboardLayout';
-import { getDashboardMetrics, getPerformanceData, getRecentCampaigns } from '@/services/dashboardService';
 import axios from 'axios';
+import ProtectedRoute from '../../components/dashboard/ProtectedRoute';
+
 
 function DashboardPage() {
     const [metrics, setMetrics] = useState(null);
@@ -51,67 +52,69 @@ function DashboardPage() {
     }, []);
 
     return (
-        <DashboardLayout>
-            <Head><title>Dashboard - EmailAI Pro</title></Head>
+        <ProtectedRoute>
+            <DashboardLayout>
+                <Head><title>Dashboard - EmailAI Pro</title></Head>
 
-            <div className="p-6 max-w-7xl mx-auto">
-                <h1 className="text-3xl font-bold mb-6">📊 Dashboard Overview</h1>
+                <div className="p-6 max-w-7xl mx-auto">
+                    <h1 className="text-3xl font-bold mb-6">📊 Dashboard Overview</h1>
 
-                {/* Metrics */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-                    <MetricCard title="Emails Sent" value={metrics?.emailsSent || 0} />
-                    <MetricCard title="Open Rate" value={`${metrics?.openRate || 0}%`} />
-                    <MetricCard title="Click Rate" value={`${metrics?.clickRate || 0}%`} />
-                    <MetricCard title="Revenue" value={`$${metrics?.revenue || 0}`} />
-                </div>
-
-                {/* Charts */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-                    <h2 className="text-xl font-semibold mb-4">Weekly Performance</h2>
-                    <div className="w-full h-64">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <LineChart data={performanceData}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="date" />
-                                <YAxis />
-                                <Tooltip />
-                                <Line type="monotone" dataKey="openRate" stroke="#3b82f6" strokeWidth={2} />
-                                <Line type="monotone" dataKey="clickRate" stroke="#f59e0b" strokeWidth={2} />
-                            </LineChart>
-                        </ResponsiveContainer>
+                    {/* Metrics */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+                        <MetricCard title="Emails Sent" value={metrics?.emailsSent || 0} />
+                        <MetricCard title="Open Rate" value={`${metrics?.openRate || 0}%`} />
+                        <MetricCard title="Click Rate" value={`${metrics?.clickRate || 0}%`} />
+                        <MetricCard title="Revenue" value={`$${metrics?.revenue || 0}`} />
                     </div>
-                </div>
 
-                {/* Recent Campaigns */}
-                <div className="mt-10">
-                    <h2 className="text-xl font-semibold mb-4">Recent Campaigns</h2>
-                    <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-x-auto">
-                        <table className="min-w-full text-sm text-left">
-                            <thead className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white">
-                                <tr>
-                                    <th className="px-4 py-3">Name</th>
-                                    <th className="px-4 py-3">Status</th>
-                                    <th className="px-4 py-3">Open Rate</th>
-                                    <th className="px-4 py-3">Click Rate</th>
-                                    <th className="px-4 py-3">Revenue</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {recentCampaigns.map((c, i) => (
-                                    <tr key={i} className="border-b dark:border-gray-700">
-                                        <td className="px-4 py-3">{c.name}</td>
-                                        <td className="px-4 py-3">{c.status}</td>
-                                        <td className="px-4 py-3">{c.openRate}</td>
-                                        <td className="px-4 py-3">{c.clickRate}</td>
-                                        <td className="px-4 py-3">{c.revenue}</td>
+                    {/* Charts */}
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <h2 className="text-xl font-semibold mb-4">Weekly Performance</h2>
+                        <div className="w-full h-64">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <LineChart data={performanceData}>
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="date" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Line type="monotone" dataKey="openRate" stroke="#3b82f6" strokeWidth={2} />
+                                    <Line type="monotone" dataKey="clickRate" stroke="#f59e0b" strokeWidth={2} />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
+
+                    {/* Recent Campaigns */}
+                    <div className="mt-10">
+                        <h2 className="text-xl font-semibold mb-4">Recent Campaigns</h2>
+                        <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-x-auto">
+                            <table className="min-w-full text-sm text-left">
+                                <thead className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white">
+                                    <tr>
+                                        <th className="px-4 py-3">Name</th>
+                                        <th className="px-4 py-3">Status</th>
+                                        <th className="px-4 py-3">Open Rate</th>
+                                        <th className="px-4 py-3">Click Rate</th>
+                                        <th className="px-4 py-3">Revenue</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {recentCampaigns.map((c, i) => (
+                                        <tr key={i} className="border-b dark:border-gray-700">
+                                            <td className="px-4 py-3">{c.name}</td>
+                                            <td className="px-4 py-3">{c.status}</td>
+                                            <td className="px-4 py-3">{c.openRate}</td>
+                                            <td className="px-4 py-3">{c.clickRate}</td>
+                                            <td className="px-4 py-3">{c.revenue}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </DashboardLayout>
+            </DashboardLayout>
+        </ProtectedRoute>
     );
 }
 
