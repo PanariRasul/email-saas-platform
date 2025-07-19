@@ -1,0 +1,185 @@
+.featuresHome
+{
+    padding-top: 150px;
+}
+.featureCard1:hover
+{
+  border: 1.5px solid rgb(146, 142, 142);
+}
+
+.pricingHome{
+    /* background-image: url(https://assets.clayrun.dev/Clay%20brand/img-clay-footer-garden.png); */
+    padding-top: 150px;
+    
+}
+
+/*  Integrations*/
+.integrations {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+
+.headline {
+  font-size: 40px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+}
+
+.highlight {
+  color: #7F27FF; /* Hunter's primary orange */
+}
+
+.logoContainer {
+  margin-top: 60px;
+  justify-content: center;
+  display: flex;
+}
+
+.logoContainer img {
+  max-width: 100%;
+  height: auto;
+   
+  
+}
+
+
+/* navbar menu */
+
+.navContainer {
+  border-bottom: 1px solid #e5e7eb;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  
+}
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.navItem {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover {
+  color: #f97316;
+}
+
+.active {
+  color: #f97316;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  background-color: #f97316;
+  border-radius: 2px;
+}
+
+/*  */
+/* From Uiverse.io by vamsidevendrakumar */ 
+.MaincardSection
+{
+    padding-top: 50px;
+    padding-left: 300px;
+}
+.cardSection
+{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.card {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  
+  
+}
+.cardInner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+ 
+}
+
+.card:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.cardFront{
+   
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 2px solid #4c09c7; */
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(0deg);
+ box-shadow: 0 4px 20px rgba(45, 6, 155, 0.459);
+
+
+}
+
+.cardFront img
+{
+    width: 130px;
+}
+.cardBack {
+  background-color: #481792;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #481792;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 15px;
+  transform: rotateY(180deg);
+  text-align: center;
+  box-shadow: 0 4px 20px #550cdda2;
+
+}
