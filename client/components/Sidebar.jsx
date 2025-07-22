@@ -60,11 +60,11 @@ export default function Sidebar({ isCollapsed }) {
                                 title={isCollapsed ? link.name : ''}
                             >
                                 <IconComponent 
-                                    size={10} 
+                                    size={20} 
                                     className={`flex-shrink-0 ${isActive ? 'text-[#6528F7] dark:text-[#AD49E1]' : ''}`} 
                                 />
                                 {!isCollapsed && (
-                                    <span className="text-sm font-medium whitespace-nowrap">
+                                    <span className="text-s font-semibold whitespace-nowrap">
                                         {link.name}
                                     </span>
                                 )}

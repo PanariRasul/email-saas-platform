@@ -56,8 +56,13 @@ function DashboardPage() {
             <DashboardLayout>
                 <Head><title>Dashboard - EmailAI Pro</title></Head>
 
+<<<<<<< HEAD
                 <div className="p-6 max-w-7xl mx-auto">
                     <h1 className="text-3xl font-bold mb-6">📊 Dashboard Overview</h1>
+=======
+            <div className={`p-6 w-full mx-auto mt-[5%]`}>
+                <h1 className="text-3xl font-bold mb-6">📊 Dashboard Overview</h1>
+>>>>>>> 385728a01f08c2a20410bbccb20af5f558616ce6
 
                     {/* Metrics */}
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
